@@ -15,7 +15,7 @@ RUN ls
 RUN pwd
 
 # Build the Go application
-RUN go build main.go -o myapp
+RUN go build main.go
 
 # Define environment variables for sourceLocation and outputLocation
 ENV SOURCE_LOCATION=""
