@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the local source files to the container's working directory
 COPY . .
 
+# Show the result of file copies
+RUN ls
+
 # Build the Go application
 RUN go build -o myapp
 
