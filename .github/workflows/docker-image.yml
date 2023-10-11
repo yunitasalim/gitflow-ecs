@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build --file ./Dockerfile ./ --tag ecs-image-processor:$(date +%s)
     - name: Install AWS CLI v2
       run:  |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscliv2.zip
@@ -28,3 +26,8 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Build the Docker image
+      # run: docker build --file ./Dockerfile ./ --tag ecs-image-processor:$(date +%s)
+      run: docker build --file ./Dockerfile ./ --tag ecs-image-processor1:latest
+    - name: Push the Docker image
+      run: docker push 578400831858.dkr.ecr.us-east-1.amazonaws.com/ecs-image-processor1:latest
