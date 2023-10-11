@@ -29,5 +29,7 @@ jobs:
     - name: Build the Docker image
       # run: docker build --file ./Dockerfile ./ --tag ecs-image-processor:$(date +%s)
       run: docker build --file ./Dockerfile ./ --tag ecs-image-processor1:latest
+    - name: Tag the Docker image
+      run: docker tag ecs-image-processor1:latest 578400831858.dkr.ecr.us-east-1.amazonaws.com/ecs-image-processor1:latest
     - name: Push the Docker image
       run: docker push 578400831858.dkr.ecr.us-east-1.amazonaws.com/ecs-image-processor1:latest
