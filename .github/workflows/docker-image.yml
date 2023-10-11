@@ -23,8 +23,8 @@ jobs:
           rm /tmp/awscliv2.zip
           sudo /tmp/aws/install --update
           rm -rf /tmp/aws/
+    - name: Obtain ECS Credential
+      run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 578400831858.dkr.ecr.us-east-1.amazonaws.com  
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - name: Obtain ECS Credential
-      run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 578400831858.dkr.ecr.us-east-1.amazonaws.com  
