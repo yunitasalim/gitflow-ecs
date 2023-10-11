@@ -16,19 +16,22 @@ func main() {
 		return
 	}
 
-	// Read the content from the source file.
-	sourceContent, err := ioutil.ReadFile(sourceLocation)
-	if err != nil {
-		fmt.Printf("Error reading from %s: %v\n", sourceLocation, err)
-		return
-	}
+	// // Read the content from the source file.
+	// sourceContent, err := ioutil.ReadFile(sourceLocation)
+	// if err != nil {
+	// 	fmt.Printf("Error reading from %s: %v\n", sourceLocation, err)
+	// 	return
+	// }
 
-	// Write the content to the output file.
-	err = ioutil.WriteFile(outputLocation, sourceContent, 0644)
-	if err != nil {
-		fmt.Printf("Error writing to %s: %v\n", outputLocation, err)
-		return
-	}
-
+	// // Write the content to the output file.
+	// err = ioutil.WriteFile(outputLocation, sourceContent, 0644)
+	// if err != nil {
+	// 	fmt.Printf("Error writing to %s: %v\n", outputLocation, err)
+	// 	return
+	// }
+	now := time.Unix(123456789, 0).UTC() // time.Time implements fmt.Stringer.
+	fmt.Printf("%v %q\n", now, now)
+	log.Printf("%v %q\n", now, now)
 	fmt.Printf("Successfully copied content from %s to %s\n", sourceLocation, outputLocation)
+	log.Printf("Successfully copied content from %s to %s\n", sourceLocation, outputLocation)
 }
