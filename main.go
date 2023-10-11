@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	// "io/ioutil"
+	"log"
 	"os"
+	"time"
 )
 
 func main() {
