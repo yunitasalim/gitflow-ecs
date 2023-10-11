@@ -4,7 +4,7 @@ FROM golang:1.16
 # Set the working directory inside the container
 WORKDIR /app
 
-RUN echo pwd
+RUN pwd
 
 # Copy the local source files to the container's working directory
 COPY . .
@@ -12,7 +12,7 @@ COPY . .
 # Show the result of file copies
 RUN ls
 
-RUN echo pwd
+RUN pwd
 
 # Build the Go application
 RUN go build -o myapp
